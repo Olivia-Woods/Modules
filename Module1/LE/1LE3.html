@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" 
+content="width=device-width, initial-scale=1.0">
+    <title>Module 1 Exercise 3</title>
+    <style>
+        body { font-family: sans-serif; margin: 0; }
+        .container { display: flex; min-height:
+100vh; align-items: stretch; }
+        .column {background: goldenrod; display:
+flex; flex-direction: column; justify-content:
+center; align-items: center; flex: 1; }
+        .button { 
+            background-color: green;
+            color: orange;
+            padding: 10px;
+            border-radius: 5px;
+            cursor: pointer;
+                }
+    </style>
+</head>
+<body>
+    
+    <div class="container">
+        <div class="column" id="column1">
+            <h1 id="heading1">Hello</h1>
+            <button onclick="changecolumn1()" class="button" type="button">Change Me</button>
+            <br>
+            <img src="https://i.pinimg.com/474x/bc/26/61/bc266157d205e3557c31efe4a24e392c.jpg" alt="Orange">
+        </div> 
+        <div class="column" id="column2">
+            <h1 id="heading2">World</h1>
+            <button onclick="changecolumn2()" class="button" type="button">Change Me</button>
+            <br>
+            <img src="https://i.pinimg.com/474x/bc/26/61/bc266157d205e3557c31efe4a24e392c.jpg" alt="Orange">
+        </div>
+    </div> 
+
+ <script>
+    function changecolumn1() {
+        //Change Background Color of Column 1 
+    document.getElementById('column1').style.backgroundColor = 'white';
+     //Change Heading Text of Column 1 
+     document.getElementById('heading1').textContent = 'Column 1 Updated';
+    }
+    function changecolumn2() {
+        //Change Background Color of Column 2 
+    document.getElementById('column2').style.backgroundColor = 'white';
+     //Change Heading Text of Column 1 
+     document.getElementById('heading2').textContent = 'Column 2 Updated';
+    }
+ </script>
+
+</body>
+</html>
