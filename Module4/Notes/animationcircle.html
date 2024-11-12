@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Animated Circle</title>
+  <style>
+    /* Define Circle */
+    .circle {
+      width: 50px;
+      height: 50px;
+      background-color: lightpink;
+      border-radius: 50%;
+      position: absolute;
+      top: 0;
+      left: 50%;
+      transform: translateX(-50%); /* Shifts an element horizontally by 50% of its own width to the left */
+      animation: moveDown 5s infinite alternate; /* Runs infinitely and reverses direction */
+    }
+
+    /* Define Animation */
+    @keyframes moveDown {
+      0% {
+        top: 0;
+        background-color: lightpink;
+      }
+      50% {
+        background-color: deeppink; /* Changes color to dark pink halfway */
+      }
+      100% {
+        top: 100vh; /* Moves to the bottom of the screen */
+        background-color: lightpink; /* Resets color at the end */
+      }
+    }
+  </style>
+</head>
+<body>
+  <h1 style="font-family: Arial, Helvetica, sans-serif;"> Circle </h1>
+  <div class="circle"></div>
+</body>
+</html>

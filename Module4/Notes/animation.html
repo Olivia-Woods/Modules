@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Horizontal Moving Square</title>
+  <style>
+    /* Define Square */
+    .square {
+      width: 50px;
+      height: 50px;
+      background-color: #FF93D5;
+      position: absolute;
+      left: 0;
+      animation: moveRight 5s linear 2; /* Run Animation 2 Times */
+    }
+
+    /* Define Animation */
+    @keyframes moveRight {
+      0% {
+        left: 0;
+      }
+      100% {
+        left: 100%;
+        transform: translateX(-100%); /* Keeps Within the Viewport */
+      }
+    }
+  </style>
+</head>
+<body>
+  <h1 style="font-family: Arial, Helvetica, sans-serif;">Animated Moving Square</h1>
+  <div class="square"></div>
+</body>
+</html>
