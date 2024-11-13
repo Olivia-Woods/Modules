@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Artist Portfolio</title>
+    <style>
+      body {
+        font-family: Arial, Helvetica, sans-serif;
+        background-color: #e3f2fd;
+        margin: 20px;
+      }
+      .artist-card {
+        border: 2px solid #2196f3;
+        padding: 15px;
+        margin-bottom: 20px;
+        border-radius: 8px;
+        background-color: #ffffff;
+      }
+      .artist-name {
+        font-size: 2em;
+        font-weight: bold;
+        color: #1976d2;
+        margin-bottom: 10px;
+      }
+      .portfolio-list {
+        display: flex;
+        gap: 15px;
+        flex-wrap: wrap;
+      }
+      .portfolio-card {
+        border: 1px solid #1976d2;
+        padding: 10px;
+        border-radius: 8px;
+        width: 150px;
+        text-align: center;
+      }
+      .portfolio-title {
+        font-weight: 600;
+        margin: 10px 0;
+        font-size: 1.1em;
+      }
+      .portfolio-image {
+        max-width: 100%;
+        height: auto;
+        border-radius: 4px;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="artist-profile"></div>
+
+    <!-- Artist Profile Template -->
+    <template id="artist-template">
+      <div class="artist-card">
+        <div class="artist-name"></div>
+        <div class="portfolio-list"></div>
+      </div>
+    </template>
+
+    <!-- Portfolio Item Template -->
+    <template id="portfolio-template">
+      <div class="portfolio-card">
+        <div class="portfolio-title"></div>
+        <img class="portfolio-image" alt="Portfolio Image" />
+      </div>
+    </template>
+
+    <script>
+      // Data for Artists and their Portfolios
+      const artists = [
+        {
+          name: "Van Gogh",
+          portfolio: [
+            {
+              title: "Portrait",
+              url: "https://collectionapi.metmuseum.org/api/collection/v1/iiif/436532/1671316/main-image",
+            },
+            {
+              title: "Sky",
+              url: "https://mymodernmet.com/wp/wp-content/uploads/2020/11/White-house-night-van-goh-worldwide-2.jpg",
+            },
+          ],
+        },
+        {
+          name: "Monet",
+          portfolio: [
+            {
+              title: "Water Lilies",
+              url: "https://example.com/waterlilies.jpg",
+            },
+            {
+              title: "Impression Sunrise",
+              url: "https://example.com/impressionsunrise.jpg",
+            },
+          ],
+        },
+      ];
+
+      // Function to create an artist profile with portfolio items
+      function createArtistProfile(artist) {
+        const artistTemplate = document
+          .getElementById("artist-template")
+          .content.cloneNode(true);
+        artistTemplate.querySelector(".artist-name").innerText = artist.name;
+        const portfolioList = artistTemplate.querySelector(".portfolio-list");
+
+        // Populate the portfolio items for each artist
+        artist.portfolio.forEach((item) => {
+          const portfolioTemplate = document
+            .getElementById("portfolio-template")
+            .content.cloneNode(true);
+          portfolioTemplate.querySelector(".portfolio-title").innerText =
+            item.title;
+          portfolioTemplate.querySelector(".portfolio-image").src = item.url;
+          portfolioList.appendChild(portfolioTemplate);
+        });
+
+        // Append artist profile to the page
+        document.getElementById("artist-profile").appendChild(artistTemplate);
+      }
+
+      // Loop through each artist and create their profile on the page
+      artists.forEach(createArtistProfile);
+    </script>
+  </body>
+</html>
