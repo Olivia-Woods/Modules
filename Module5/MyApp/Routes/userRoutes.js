@@ -13,7 +13,7 @@ router.get("/", (req, res) => {
   res.json(users);
 });
 
-// Route to get a user by ID - NOT WORKING
+// Route to get a user by ID
 router.get("/:id", (req, res) => {
   console.log(req.params);
   const { id } = req.params;
