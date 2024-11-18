@@ -2,6 +2,7 @@ const express = require("express"); // Importing the 'Express' library. This com
 
 const testRoutes = require("./Routes/myTestRoutes");
 const calculatorRoutes = require("./Routes/calculatorRoutes");
+const userRoutes = require("./Routes/userRoutes");
 
 const app = express(); // Creating an instance of Express, which we use to set up and configure our web server.
 
@@ -12,6 +13,8 @@ app.use(`/`, express.static("Public"));
 app.use("/myOwnTest", testRoutes);
 
 app.use("/calculator", calculatorRoutes);
+
+app.use("/users", userRoutes);
 
 app.get(`/test`, (req, res) => {
   // Setting up an endpoint. 'GET' is the HTTP method, used to request data from this route.
