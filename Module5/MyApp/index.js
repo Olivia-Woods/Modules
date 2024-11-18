@@ -4,7 +4,7 @@ const app = express(); // Creating an instance of Express, which we use to set u
 
 const port = 3000; // Defining the port number for our server to listen on, which will be http://localhost:3000.
 
-app.use(`/`, express.static("public"));
+app.use(`/`, express.static("Public"));
 
 app.get(`/test`, (req, res) => {
   // Setting up an endpoint. 'GET' is the HTTP method, used to request data from this route.
