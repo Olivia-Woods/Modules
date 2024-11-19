@@ -7,7 +7,7 @@ function addNumbers(req, res) {
   // Validate Inputs
   if (Number.isNaN(num1Num) || Number.isNaN(num2Num)) {
     return res.status(400).json({
-      error: "The inputs are not correct numbers",
+      error: "The Inputs Are NOT Correct Numbers!",
     });
   }
 
