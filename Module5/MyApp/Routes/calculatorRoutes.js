@@ -1,12 +1,8 @@
 const express = require("express");
 const router = express.Router();
+const { addNumbers } = require("./controllers/calculatorController"); // Import addNumbers Function
 
-router.get("/add", (req, res) => {
-  console.log(req.query);
-  const { num1, num2 } = req.query;
-  const num1Num = parseInt(num1, 10);
-  const num2Num = parseInt(num2, 10);
-  res.send(`${num1Num + num2Num}`);
-});
+// Use addNumbers directly as the Route Handler
+router.get("/add", addNumbers);
 
 module.exports = router;
