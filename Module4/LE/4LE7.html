@@ -13,6 +13,7 @@
         position: absolute;
         left: 0;
         animation: moveRight 5s linear 2; /* Run Animation 2 Times */
+        animation-timing-function: ease-in-out;
       }
 
       /* Define Animation */
@@ -23,6 +24,9 @@
         100% {
           left: 100%;
           transform: translateX(-100%); /* Keeps Within the Viewport */
+        }
+        to {
+          background-color: blueviolet;
         }
       }
     </style>
