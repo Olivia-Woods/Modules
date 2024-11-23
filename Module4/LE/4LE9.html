@@ -11,24 +11,24 @@
     <!-- Prepare a DOM with a defined width and height for ECharts -->
     <div id="main" style="width: 900px; height: 600px"></div>
     <script type="text/javascript">
-      // Initialize the echarts instance based on the prepared div
+      // Initialize the echarts instance based on the prepared div.
       let myChart = echarts.init(document.getElementById("main"));
 
-      // Fetch data from Fake Store API
+      // Fetch Data from Fake Store API
       fetch("https://fakestoreapi.com/products")
         .then((response) => response.json())
         .then((data) => {
-          // Count items in each category
+          // Count items in each category.
           const categoryCount = data.reduce((count, item) => {
             count[item.category] = (count[item.category] || 0) + 1;
             return count;
           }, {});
 
-          // Extract categories and counts for the chart
+          // Extract categories and counts for the chart.
           const categories = Object.keys(categoryCount);
           const counts = Object.values(categoryCount);
 
-          // Specify the configuration items and data for the chart
+          // Specify the configuration items and data for the chart.
           let options = {
             title: { text: "Fake Store Categories" },
             xAxis: { data: categories },
@@ -42,7 +42,7 @@
             ],
           };
 
-          // Display the chart with the configured options
+          // Display the chart with the configured options.
           myChart.setOption(options);
         })
         .catch((error) => console.error("Error fetching data:", error));
