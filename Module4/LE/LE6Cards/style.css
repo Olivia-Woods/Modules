@@ -12,3 +12,17 @@ body {
   font-size: 0.95rem;
   color: #6c757d;
 }
+
+.btn-primary {
+  background-color: #f89ad1;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  padding: 10px 20px;
+  font-size: 16px;
+  font-weight: bold;
+}
+
+.btn-primary:hover {
+  background-color: #fa6dbf;
+}

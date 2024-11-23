@@ -23,7 +23,7 @@ async function fetchPostsAxios(limit = 10) {
   }
 }
 
-// Display posts in cards
+// Display Posts in Cards
 function displayPosts(posts) {
   cardsContainer.innerHTML = ""; // Clear existing cards
   posts.forEach((post) => {
@@ -48,5 +48,5 @@ postForm.addEventListener("submit", (event) => {
   fetchPosts(limit);
 });
 
-// Load default posts on page load
+// Load Default Posts on Page Load
 fetchPosts(10);
