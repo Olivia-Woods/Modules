@@ -19,7 +19,7 @@ function inputNumber(num) {
 
 // Function to SET the Operator (+, -, *, /) and prepare for the SECOND number!
 function setOperator(op) {
-  operator = op; // Store the chosen operator
+  operator = op; // Store the chosen operator.
   secondNumber = firstNumber; // Move the current input to secondNumber.
   firstNumber = ""; // Reset firstNumber for the next input.
 }
@@ -30,7 +30,7 @@ function calculate() {
   const num1 = parseFloat(secondNumber); // Convert secondNumber to a float. Number not STRING.
   const num2 = parseFloat(firstNumber); // Convert firstNumber to a float.
 
-  // Perform Calculation based on the Operator
+  // Perform Calculation based on the Operator (Conditions)
   switch (operator) {
     case "+":
       result = num1 + num2;
