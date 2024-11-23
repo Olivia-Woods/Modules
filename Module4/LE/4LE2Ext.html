@@ -7,11 +7,11 @@
     <style>
       body {
         font-family: Arial, Helvetica, sans-serif;
-        background-color: #e3f2fd;
+        background-color: #fad5ec;
         margin: 20px;
       }
       .artist-card {
-        border: 2px solid #2196f3;
+        border: 2px solid #fab6e0;
         padding: 15px;
         margin-bottom: 20px;
         border-radius: 8px;
@@ -20,7 +20,7 @@
       .artist-name {
         font-size: 2em;
         font-weight: bold;
-        color: #1976d2;
+        color: #fab6e0;
         margin-bottom: 10px;
       }
       .portfolio-list {
@@ -29,7 +29,7 @@
         flex-wrap: wrap;
       }
       .portfolio-card {
-        border: 1px solid #1976d2;
+        border: 4px solid #fab6e0;
         padding: 10px;
         border-radius: 8px;
         width: 150px;
@@ -87,17 +87,17 @@
           portfolio: [
             {
               title: "Water Lilies",
-              url: "https://example.com/waterlilies.jpg",
+              url: "https://www.artic.edu/iiif/2/3c27b499-af56-f0d5-93b5-a7f2f1ad5813/full/843,/0/default.jpg",
             },
             {
               title: "Impression Sunrise",
-              url: "https://example.com/impressionsunrise.jpg",
+              url: "https://www.claude-monet.com/assets/img/paintings/impression-sunrise.jpg",
             },
           ],
         },
       ];
 
-      // Function to create an artist profile with portfolio items
+      // Function to create an artist profile with portfolio items.
       function createArtistProfile(artist) {
         const artistTemplate = document
           .getElementById("artist-template")
@@ -105,7 +105,7 @@
         artistTemplate.querySelector(".artist-name").innerText = artist.name;
         const portfolioList = artistTemplate.querySelector(".portfolio-list");
 
-        // Populate the portfolio items for each artist
+        // Populate the portfolio items for each artist.
         artist.portfolio.forEach((item) => {
           const portfolioTemplate = document
             .getElementById("portfolio-template")
@@ -116,11 +116,11 @@
           portfolioList.appendChild(portfolioTemplate);
         });
 
-        // Append artist profile to the page
+        // Append artist profile to the page.
         document.getElementById("artist-profile").appendChild(artistTemplate);
       }
 
-      // Loop through each artist and create their profile on the page
+      // Loop through each artist and create their profile on the page.
       artists.forEach(createArtistProfile);
     </script>
   </body>
