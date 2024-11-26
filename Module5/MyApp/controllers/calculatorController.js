@@ -1,5 +1,3 @@
-// controllers/calculatorController.js
-
 const calculator = require("../utils/calculator");
 const idGenerator = require("../utils/idGenerator");
 const logger = require("../utils/logger");
