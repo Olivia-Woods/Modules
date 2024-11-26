@@ -1,0 +1,69 @@
+{
+  "swagger": "2.0",
+  "info": {
+    "version": "1.0.0",
+    "title": "My Calculator Project",
+    "description": "My Calculator Application API",
+    "license": {
+      "name": "MIT",
+      "url": "https://opensource.org/licenses/MIT"
+    }
+  },
+  "host": "localhost:3000",
+  "basePath": "/",
+  "tags": [
+    {
+      "name": "Calculator",
+      "description": "API for Calculator Operations in the System"
+    }
+  ],
+  "schemes": ["http"],
+  "consumes": ["application/json"],
+  "produces": ["application/json"],
+  "paths": {
+    "/calculator/add": {
+      "get": {
+        "tags": ["Calculator"],
+        "summary": "Add two numbers",
+        "description": "This endpoint allows you to add two numbers by providing them as query parameters.",
+        "parameters": [
+          {
+            "name": "num1",
+            "in": "query",
+            "required": true,
+            "type": "number",
+            "description": "The first number to add"
+          },
+          {
+            "name": "num2",
+            "in": "query",
+            "required": true,
+            "type": "number",
+            "description": "The second number to add"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful operation. Returns the sum of num1 and num2.",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "id": {
+                  "type": "string",
+                  "description": "Unique ID of the operation"
+                },
+                "result": {
+                  "type": "number",
+                  "description": "The sum of the two numbers"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Invalid input. Both num1 and num2 must be provided as query parameters."
+          }
+        }
+      }
+    }
+  }
+}
