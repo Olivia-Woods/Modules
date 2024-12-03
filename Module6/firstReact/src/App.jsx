@@ -1,9 +1,9 @@
 import React from "react";
-import Greeting from "./components/Greeting";
-import ProfileCard from "./ProfileCard";
-import FullName from "./components/FullName";
-import Comment from "./components/Comment";
-import commentData from "./components/CommentData";
+import Greeting from "./components/Greeting/Greeting";
+import ProfileCard from "./components/ProfileCard/ProfileCard";
+import FullName from "./components/FullName/FullName";
+import Comment from "./components/Comment/Comment";
+import commentData from "./components/Comment/CommentData";
 
 function App() {
   return (
@@ -13,7 +13,13 @@ function App() {
       <Greeting>We’re thrilled to have you here!</Greeting>
       <Greeting name="Sophia">Let’s build something amazing today!</Greeting>
 
-      <hr className="divider" />
+      <hr
+        style={{
+          margin: "32px 0",
+          border: "none",
+          borderTop: "2px dashed #ddd",
+        }}
+      />
 
       <h1>💕 Meet the Team! 💕</h1>
       <ProfileCard
@@ -37,13 +43,25 @@ function App() {
         bio="A pilates lover, cake artist, and queen of cute DIY crafts."
       />
 
-      <hr className="divider" />
+      <hr
+        style={{
+          margin: "32px 0",
+          border: "none",
+          borderTop: "2px dashed #ddd",
+        }}
+      />
 
       <h1>🌟 Displaying Full Names 🌟</h1>
       <FullName first="Olivia" middle="Amara" last="Rose" />
       <FullName first="Plain" last="Jane" />
 
-      <hr className="divider" />
+      <hr
+        style={{
+          margin: "32px 0",
+          border: "none",
+          borderTop: "2px dashed #ddd",
+        }}
+      />
 
       <h1>📝 Comments Section 📝</h1>
       {commentData.map((comment) => (

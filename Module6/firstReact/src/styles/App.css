@@ -5,10 +5,3 @@
   padding: 2rem;
   text-align: center;
 }
-
-/* Divider Style */
-.divider {
-  margin: 32px 0;
-  border: none;
-  border-top: 2px dashed #ddd;
-}
