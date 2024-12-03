@@ -1,34 +1,51 @@
-import { useState } from "react";
-import reactLogo from "./assets/react.svg";
-import viteLogo from "/vite.svg";
-import "./App.css";
+import React from "react";
+import Greeting from "./Greeting";
+import ProfileCard from "./ProfileCard";
 
 function App() {
-  const [count, setCount] = useState(0);
-
   return (
-    <>
-      <div>
-        <a href="https://vite.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.jsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
-    </>
+    <div className="App">
+      <h1>✨ Greeting Examples ✨</h1>
+
+      {/* Render Greetings */}
+      <Greeting name="Olivia">Hope you’re excited to dive into React!</Greeting>
+
+      <Greeting>We’re thrilled to have you here!</Greeting>
+
+      <Greeting name="Sophia">Let’s build something amazing today!</Greeting>
+
+      {/* Divider */}
+      <hr
+        style={{
+          margin: "32px 0",
+          border: "none",
+          borderTop: "2px dashed #ddd",
+        }}
+      />
+
+      {/* Render Profile Cards */}
+      <h1>💕 Meet the Team! 💕</h1>
+      <ProfileCard
+        name="Lila Rose"
+        age={22}
+        bio="A flower enthusiast who loves painting sunsets and eating strawberry macarons."
+      />
+      <ProfileCard
+        name="Sophie Belle"
+        age={24}
+        bio="A cat mom, bookworm, and lover of pastel stationery. Can’t resist bubble tea!"
+      />
+      <ProfileCard
+        name="Mia Luna"
+        age={21}
+        bio="A dreamy stargazer who’s always baking cupcakes and planning cozy movie nights."
+      />
+      <ProfileCard
+        name="Ella Grace"
+        age={23}
+        bio="A yoga lover, latte artist, and queen of cute DIY crafts."
+      />
+    </div>
   );
 }
 
