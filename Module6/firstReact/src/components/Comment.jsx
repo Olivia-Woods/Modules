@@ -1,34 +1,33 @@
 import React from "react";
 
 // Avatar Component
-function Avatar(props) {
-  return (
-    <img className="Avatar" src={props.user.avatarUrl} alt={props.user.name} />
-  );
+function Avatar({ user }) {
+  return <img className="Avatar" src={user.avatarUrl} alt={user.name} />;
 }
 
 // UserInfo Component
-function UserInfo(props) {
+function UserInfo({ user }) {
   return (
     <div className="UserInfo">
-      <Avatar user={props.user} />
-      <div className="UserInfo-name">{props.user.name}</div>
+      <Avatar user={user} />
+      <div className="UserInfo-name">{user.name}</div>
     </div>
   );
 }
 
 // FormattedDate Component
-function FormattedDate(props) {
-  return <div className="Comment-date">{props.date.toLocaleString()}</div>;
+function FormattedDate({ date }) {
+  return <div className="Comment-date">{date.toLocaleString()}</div>;
 }
 
 // Comment Component
-function Comment(props) {
+function Comment({ author, text, date }) {
+  // Destructuring props here
   return (
     <div className="Comment componentBox">
-      <UserInfo user={props.author} />
-      <div className="Comment-text">{props.text}</div>
-      <FormattedDate date={props.date} />
+      <UserInfo user={author} />
+      <div className="Comment-text">{text}</div>
+      <FormattedDate date={date} />
     </div>
   );
 }
