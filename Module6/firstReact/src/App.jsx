@@ -7,7 +7,7 @@ function App() {
     <div className="App">
       <h1>✨ Greeting Examples ✨</h1>
 
-      {/* Render Greetings */}
+      {/* Render Greetings - If I Remove = DEFAULT */}
       <Greeting name="Olivia">Hope you’re excited to dive into React!</Greeting>
 
       <Greeting>We’re thrilled to have you here!</Greeting>
@@ -33,7 +33,7 @@ function App() {
       <ProfileCard
         name="Sophie Belle"
         age={24}
-        bio="A cat mom, bookworm, and lover of pastel stationery. Can’t resist bubble tea!"
+        bio="A dog mum, bookworm, and lover of pink stationery. Can’t resist peppermint tea!"
       />
       <ProfileCard
         name="Mia Luna"
@@ -43,7 +43,7 @@ function App() {
       <ProfileCard
         name="Ella Grace"
         age={23}
-        bio="A yoga lover, latte artist, and queen of cute DIY crafts."
+        bio="A pilates lover, cake artist, and queen of cute DIY crafts."
       />
     </div>
   );
