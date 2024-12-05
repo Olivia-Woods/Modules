@@ -5,6 +5,7 @@ import FullName from "./components/FullName/FullName";
 import Comment from "./components/Comment/Comment";
 import commentData from "./components/Comment/CommentData";
 import MoviesList from "./components/MovieList/MovieList";
+import Emoji from "./components/Emoji/Emoji";
 
 function App() {
   return (
@@ -71,6 +72,15 @@ function App() {
       />
       <h1>🎥 Movies List 🎥</h1>
       <MoviesList /> {/* Add the MoviesList Component Here */}
+      <hr
+        style={{
+          margin: "32px 0",
+          border: "none",
+          borderTop: "2px dashed #ddd",
+        }}
+      />
+      <h1>😊 Emoji Mood Changer 😊</h1>
+      <Emoji /> {/* Add the Emoji Component Here */}
     </div>
   );
 }
