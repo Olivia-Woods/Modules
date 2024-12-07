@@ -1,23 +1,29 @@
-import React, { useState } from "react";
+import { useState } from "react";
 
-const Emoji = () => {
+function DisplayEmoji({ isHappy }) {
+  return (
+    <span role="img" aria-label={isHappy ? "happy" : "lover"}>
+      {isHappy ? "😊" : "🥰"}
+    </span>
+  );
+}
+
+function UpdateEmoji({ handleEmojiUpdate }) {
+  return <button onClick={handleEmojiUpdate}>Toggle mood</button>;
+}
+
+export default function Emoji() {
   const [isHappy, setIsHappy] = useState(true);
 
-  const toggleMood = () => {
-    setIsHappy((prevMood) => !prevMood);
-  };
+  function handleEmojiUpdate() {
+    setIsHappy(!isHappy);
+  }
 
   return (
-    <div style={{ textAlign: "center", fontSize: "2rem" }}>
-      <p>{isHappy ? "😊" : "😢"}</p>
-      <button
-        onClick={toggleMood}
-        style={{ fontSize: "1rem", padding: "0.5rem 1rem" }}
-      >
-        Change Mood
-      </button>
+    <div className="Emoji">
+      <DisplayEmoji isHappy={isHappy} />
+
+      <UpdateEmoji handleEmojiUpdate={handleEmojiUpdate} />
     </div>
   );
-};
-
-export default Emoji;
+}
