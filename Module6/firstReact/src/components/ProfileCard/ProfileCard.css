@@ -1,7 +1,45 @@
 .profile-card {
-  transition: transform 0.2s ease;
+  border: 1px solid #ff93d5;
+  border-radius: 12px;
+  padding: 16px;
+  margin: 16px;
+  background-color: #ffeffc;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
 .profile-card:hover {
-  transform: scale(1.05);
+  transform: translateY(-5px);
+  box-shadow: 0 8px 12px rgba(0, 0, 0, 0.15);
+}
+
+.profile-card h2 {
+  font-size: 1.5em;
+  color: #ff93d5;
+  margin-bottom: 8px;
+}
+
+.profile-card p {
+  margin: 4px 0;
+  font-size: 1em;
+  color: #555;
+}
+
+.profile-card p strong {
+  color: #ff93d5;
+}
+
+@media (max-width: 600px) {
+  .profile-card {
+    padding: 12px;
+    margin: 8px;
+  }
+
+  .profile-card h2 {
+    font-size: 1.2em;
+  }
+
+  .profile-card p {
+    font-size: 0.9em;
+  }
 }

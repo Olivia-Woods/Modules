@@ -1,4 +1,5 @@
 import React from "react";
+import "./Comment.css";
 
 // Avatar Component
 function Avatar({ user }) {
@@ -22,7 +23,7 @@ function FormattedDate({ date }) {
 
 // Comment Component
 function Comment({ author, text, date }) {
-  // Destructuring props here
+  // Destructuring Props Here
   return (
     <div className="Comment componentBox">
       <UserInfo user={author} />

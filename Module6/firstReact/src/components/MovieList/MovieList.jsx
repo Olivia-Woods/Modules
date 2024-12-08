@@ -40,7 +40,7 @@ function MoviesList() {
 
   return (
     <div className="MoviesList componentBox">
-      <h2>🎀 Romcom Classics 🎀</h2>
+      <h2>Romcom Classics</h2>
       <ul>
         {/* Iterate Over Each Movie - Print the Title in a list */}
         {movies.map((movie) => (

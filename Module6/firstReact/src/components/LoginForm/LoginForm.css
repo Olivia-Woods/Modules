@@ -1,0 +1,74 @@
+/* Form Container */
+.LoginForm {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 16px;
+  max-width: 400px;
+  margin: 50px auto;
+  padding: 20px;
+  background-color: #ffeefc;
+  border: 2px solid #ff93d5;
+  border-radius: 12px;
+  box-shadow: 0 4px 8px rgba(255, 147, 213, 0.4);
+  font-family: Arial, sans-serif;
+}
+
+/* Form Inputs */
+.LoginForm label {
+  font-weight: bold;
+  margin-bottom: 5px;
+  color: #ff93d5;
+}
+
+.LoginForm input {
+  width: 100%;
+  padding: 10px;
+  font-size: 1rem;
+  border: 1px solid #ff93d5;
+  border-radius: 8px;
+  box-sizing: border-box;
+  transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.LoginForm input:focus {
+  border-color: #ff6ab1;
+  box-shadow: 0 0 6px rgba(255, 147, 213, 0.6);
+}
+
+/* Buttons */
+.LoginForm .button-container {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 10px;
+}
+
+.LoginForm button {
+  padding: 10px;
+  font-size: 1rem;
+  font-weight: bold;
+  color: white;
+  background-color: #ff93d5;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.LoginForm button:hover {
+  background-color: #ff6ab1;
+}
+
+.LoginForm button[type="button"] {
+  background-color: #ffd6e7;
+}
+
+.LoginForm button[type="button"]:hover {
+  background-color: #ffc2de;
+}
+
+/* Message */
+.LoginForm p {
+  font-size: 1rem;
+  color: #ff6ab1;
+  text-align: center;
+}

@@ -14,7 +14,7 @@ function FullName(props) {
   return (
     <div className="FullName componentBox">
       {/* Add a space after the colon */}
-      Full name: <NamePart value={props.first} />{" "}
+      Full Name: <NamePart value={props.first} />{" "}
       {/* Add a space between first and middle name */}
       {props.middle && (
         <>

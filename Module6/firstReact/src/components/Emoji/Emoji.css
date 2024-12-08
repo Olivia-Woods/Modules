@@ -1,0 +1,42 @@
+/* Overall Emoji Container */
+.Emoji {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background-color: #ffeefc;
+  border: 2px solid #ff93d5;
+  border-radius: 16px;
+  padding: 24px;
+  margin: 16px auto;
+  width: 200px;
+  box-shadow: 0 4px 8px rgba(255, 147, 213, 0.4);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.Emoji:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 16px rgba(255, 147, 213, 0.6);
+}
+
+/* Display Emoji Style */
+.Emoji span {
+  font-size: 3rem;
+  margin-bottom: 16px;
+}
+
+/* Button Style */
+.Emoji button {
+  background-color: #ff93d5;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  padding: 8px 16px;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.Emoji button:hover {
+  background-color: #ff6ab1;
+}

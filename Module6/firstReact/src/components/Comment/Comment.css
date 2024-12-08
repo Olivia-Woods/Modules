@@ -1,0 +1,50 @@
+/* General Container Styles */
+.Comment {
+  border-radius: 12px;
+  padding: 16px;
+  margin: 16px;
+  background-color: #ffeffc;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.Comment:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 12px rgba(0, 0, 0, 0.15);
+}
+
+/* Avatar Styles */
+.Avatar {
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  object-fit: cover;
+  margin-right: 12px;
+}
+
+/* User Info Container */
+.UserInfo {
+  display: flex;
+  align-items: center;
+  margin-bottom: 8px;
+}
+
+.UserInfo-name {
+  font-size: 1.2em;
+  color: #ff93d5;
+  font-weight: bold;
+}
+
+/* Comment Text */
+.Comment-text {
+  font-size: 1em;
+  color: #555;
+  margin: 8px 0;
+}
+
+/* Formatted Date */
+.Comment-date {
+  font-size: 0.9em;
+  color: #777;
+  margin-top: 8px;
+}

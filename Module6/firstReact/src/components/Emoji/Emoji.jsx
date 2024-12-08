@@ -1,4 +1,5 @@
 import { useState } from "react";
+import "./Emoji.css";
 
 function DisplayEmoji({ isHappy }) {
   return (
@@ -9,7 +10,7 @@ function DisplayEmoji({ isHappy }) {
 }
 
 function UpdateEmoji({ handleEmojiUpdate }) {
-  return <button onClick={handleEmojiUpdate}>Toggle mood</button>;
+  return <button onClick={handleEmojiUpdate}>Change Mood</button>;
 }
 
 export default function Emoji() {
