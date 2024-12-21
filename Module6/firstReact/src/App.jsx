@@ -7,6 +7,7 @@ import commentData from "./components/Comment/CommentData";
 import MoviesList from "./components/MovieList/MovieList";
 import Emoji from "./components/Emoji/Emoji";
 import LoginForm from "./components/LoginForm/LoginForm";
+import BigCats from "./components/BigCats/BigCats";
 
 function App() {
   return (
@@ -62,7 +63,7 @@ function App() {
         }}
       />
       <h1>🌙 Movies List</h1>
-      <MoviesList /> {/* Add the MoviesList Component Here */}
+      <MoviesList />
       <hr
         style={{
           margin: "32px 0",
@@ -71,7 +72,7 @@ function App() {
         }}
       />
       <h1>😊 Emoji Mood Changer</h1>
-      <Emoji /> {/* Add the Emoji Component Here */}
+      <Emoji />
       <hr
         style={{
           margin: "32px 0",
@@ -80,7 +81,16 @@ function App() {
         }}
       />
       <h1>🔑 Login Form</h1>
-      <LoginForm /> {/* Added LoginForm Component */}
+      <LoginForm />
+      <hr
+        style={{
+          margin: "32px 0",
+          border: "none",
+          borderTop: "2px dashed #ddd",
+        }}
+      />
+      <h1>🐱 Big Cats</h1>
+      <BigCats />
     </div>
   );
 }

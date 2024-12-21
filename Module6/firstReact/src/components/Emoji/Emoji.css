@@ -40,3 +40,7 @@
 .Emoji button:hover {
   background-color: #ff6ab1;
 }
+
+.Emoji button:focus {
+  outline: none;
+}
