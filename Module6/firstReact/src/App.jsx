@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useContext } from "react";
 import Greeting from "./components/Greeting/Greeting";
 import ProfileCard from "./components/ProfileCard/ProfileCard";
 import FullName from "./components/FullName/FullName";
@@ -8,10 +8,36 @@ import MoviesList from "./components/MovieList/MovieList";
 import Emoji from "./components/Emoji/Emoji";
 import LoginForm from "./components/LoginForm/LoginForm";
 import BigCats from "./components/BigCats/BigCats";
+import { ThemeProvider, ThemeContext } from "../context/ThemeContext";
 
-function App() {
+function AppContent() {
+  const { theme, toggleTheme, isDarkMode } = useContext(ThemeContext);
+
   return (
-    <div className="App">
+    <div
+      className="App"
+      style={{
+        backgroundColor: theme.background,
+        color: theme.foreground,
+        padding: "16px",
+        minHeight: "100vh",
+      }}
+    >
+      <button
+        onClick={toggleTheme}
+        style={{
+          padding: "10px 20px",
+          cursor: "pointer",
+          border: "none",
+          borderRadius: "5px",
+          backgroundColor: isDarkMode ? "#ffffff" : "#333333",
+          color: isDarkMode ? "#333333" : "#ffffff",
+          marginBottom: "20px",
+        }}
+      >
+        Toggle Theme
+      </button>
+
       <h1>✨ Greeting Examples</h1>
       <Greeting name="Olivia">Hope you’re excited to dive into React!</Greeting>
       <Greeting>We’re thrilled to have you here!</Greeting>
@@ -92,6 +118,14 @@ function App() {
       <h1>🐱 Big Cats</h1>
       <BigCats />
     </div>
+  );
+}
+
+function App() {
+  return (
+    <ThemeProvider>
+      <AppContent />
+    </ThemeProvider>
   );
 }
 
