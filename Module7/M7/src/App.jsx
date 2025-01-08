@@ -1,5 +1,7 @@
 import { useState } from "react";
-import UseRefExample from "./components/UseRef"; // Import UseRef Component
+import UseRefExample from "./components/useRef";
+import UseReducerExample from "./components/useReducer";
+import UserList from "./components/userList";
 import "./App.css";
 
 function App() {
@@ -8,7 +10,7 @@ function App() {
   return (
     <>
       {/* Heading */}
-      <h1>useRef Hook Example</h1>
+      <h1>useRef, useReducer, and API Data Fetch Example</h1>
 
       {/* Optional Count State */}
       <div className="card">
@@ -18,8 +20,17 @@ function App() {
       {/* UseRefExample Component Integration */}
       <UseRefExample />
 
+      {/* UseReducerExample Component Integration */}
+      <UseReducerExample />
+
+      {/* Updated UserList Component Integration */}
+      <div className="user-list-section">
+        <h2>Control When to Fetch User Data:</h2>
+        <UserList />
+      </div>
+
       <p className="read-the-docs">
-        Click the button to interact with the input field above.
+        Click the buttons to interact with the examples above.
       </p>
     </>
   );
