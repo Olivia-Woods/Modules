@@ -1,5 +1,6 @@
 import { StrictMode } from "react";
 import { createRoot } from "react-dom/client";
+import { BrowserRouter } from "react-router-dom"; // Import BrowserRouter
 import "./styles/index.css";
 import App from "./App.jsx";
 import { ErrorBoundary } from "react-error-boundary";
@@ -17,14 +18,16 @@ function ErrorFallback({ error, resetErrorBoundary }) {
 
 createRoot(document.getElementById("root")).render(
   <StrictMode>
-    <ErrorBoundary
-      FallbackComponent={ErrorFallback}
-      onReset={() => {
-        // Optionally reset the application state
-        console.log("Resetting application state...");
-      }}
-    >
-      <App />
-    </ErrorBoundary>
+    <BrowserRouter>
+      <ErrorBoundary
+        FallbackComponent={ErrorFallback}
+        onReset={() => {
+          // Optionally reset the application state
+          console.log("Resetting application state...");
+        }}
+      >
+        <App />
+      </ErrorBoundary>
+    </BrowserRouter>
   </StrictMode>
 );
