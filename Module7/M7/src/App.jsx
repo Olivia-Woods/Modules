@@ -2,6 +2,7 @@ import { useState } from "react";
 import UseRefExample from "./components/useRef";
 import UseReducerExample from "./components/useReducer";
 import UserList from "./components/userList";
+import SubscribeForm from "./components/SubscribeForm";
 import "./App.css";
 
 function App() {
@@ -27,6 +28,12 @@ function App() {
       <div className="user-list-section">
         <h2>Control When to Fetch User Data:</h2>
         <UserList />
+      </div>
+
+      {/* Add SubscribeForm Component Here */}
+      <div className="subscribe-form-section">
+        <h2>Subscribe Form Example:</h2>
+        <SubscribeForm />
       </div>
 
       <p className="read-the-docs">
