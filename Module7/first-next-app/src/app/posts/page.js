@@ -1,8 +1,11 @@
+"use client"; // Mark as a client component
+
 import CustomCard from "../../../components/CustomCard";
 import Link from "next/link";
-import { Button } from "@mui/material"; // Import Material UI Button
+import { Button } from "@mui/material";
+import { useSearchParams } from "next/navigation"; // Import useSearchParams
+import { useEffect, useState } from "react"; // For client-side fetching
 
-// Function to FETCH a single post by ID
 async function getPostData(id) {
   const res = await fetch(`https://jsonplaceholder.typicode.com/posts/${id}`);
   if (!res.ok) {
@@ -11,7 +14,6 @@ async function getPostData(id) {
   return res.json();
 }
 
-// Function to FETCH posts with a LIMIT
 async function getPosts(limit) {
   const res = await fetch(
     `https://jsonplaceholder.typicode.com/posts?_limit=${limit}`
@@ -22,45 +24,66 @@ async function getPosts(limit) {
   return res.json();
 }
 
-export default async function Posts({ searchParams }) {
-  const limit = parseInt(searchParams.limit) || 10;
-  const postId = parseInt(searchParams.id);
+export default function Posts() {
+  const searchParams = useSearchParams(); // Hook to access query params
+  const postId = searchParams.get("id"); // Get the "id" param
+  const limit = parseInt(searchParams.get("limit") || 10); // Get the "limit" param with a default value
 
-  // If `id` is provided in the query string, FETCH and display the SINGLE POST
-  if (postId) {
-    try {
-      const post = await getPostData(postId);
+  const [posts, setPosts] = useState([]);
+  const [singlePost, setSinglePost] = useState(null);
+  const [error, setError] = useState(null);
 
-      return (
-        <main>
-          <div className="post">
-            <h1>Post Details</h1>
-            <CustomCard title={`Post #${post.id}: ${post.title}`}>
-              {post.body}
-            </CustomCard>
-            <Link href="/posts">
+  useEffect(() => {
+    async function fetchData() {
+      try {
+        if (postId) {
+          const post = await getPostData(postId);
+          setSinglePost(post);
+        } else {
+          const fetchedPosts = await getPosts(limit);
+          setPosts(fetchedPosts);
+        }
+      } catch (err) {
+        setError(err.message);
+      }
+    }
+
+    fetchData();
+  }, [postId, limit]);
+
+  if (error) {
+    return (
+      <main>
+        <div className="error">
+          <h2>Error: Unable to load post.</h2>
+          <p>{error}</p>
+          <Link href="/posts" legacyBehavior>
+            <a>← Back to All Posts</a>
+          </Link>
+        </div>
+      </main>
+    );
+  }
+
+  if (singlePost) {
+    return (
+      <main>
+        <div className="post">
+          <h1>Post Details</h1>
+          <CustomCard title={`Post #${singlePost.id}: ${singlePost.title}`}>
+            {singlePost.body}
+          </CustomCard>
+          <Link href="/posts" legacyBehavior>
+            <a>
               <Button size="small" color="primary">
                 ← Back to All Posts
               </Button>
-            </Link>
-          </div>
-        </main>
-      );
-    } catch (error) {
-      return (
-        <main>
-          <div className="error">
-            <h2>Error: Unable to load post #{postId}.</h2>
-            <p>{error.message}</p>
-            <Link href="/posts">← Back to All Posts</Link>
-          </div>
-        </main>
-      );
-    }
+            </a>
+          </Link>
+        </div>
+      </main>
+    );
   }
-
-  // Otherwise, FETCH and display the LIST of POSTS
-  const posts = await getPosts(limit);
 
   return (
     <main>
@@ -71,10 +94,12 @@ export default async function Posts({ searchParams }) {
           {posts.map((post) => (
             <CustomCard key={post.id} title={`Post #${post.id}`}>
               {post.title}
-              <Link href={`/posts/${post.id}`}>
-                <Button size="small" color="primary">
-                  Read More
-                </Button>
+              <Link href={`/posts?id=${post.id}`} legacyBehavior>
+                <a>
+                  <Button size="small" color="primary">
+                    Read More
+                  </Button>
+                </a>
               </Link>
             </CustomCard>
           ))}
