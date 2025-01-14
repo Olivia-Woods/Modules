@@ -1,4 +1,4 @@
-"use client"; // Add this at the top to mark it as a client component
+"use client";
 
 import Card from "@mui/material/Card";
 import CardContent from "@mui/material/CardContent";

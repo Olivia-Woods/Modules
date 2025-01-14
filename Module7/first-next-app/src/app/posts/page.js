@@ -1,8 +1,8 @@
-import CustomCard from "../../../components/CustomCard"; // Import your custom card component
+import CustomCard from "../../../components/CustomCard";
 import Link from "next/link";
 import { Button } from "@mui/material"; // Import Material UI Button
 
-// Function to fetch a single post by ID
+// Function to FETCH a single post by ID
 async function getPostData(id) {
   const res = await fetch(`https://jsonplaceholder.typicode.com/posts/${id}`);
   if (!res.ok) {
@@ -11,7 +11,7 @@ async function getPostData(id) {
   return res.json();
 }
 
-// Function to fetch posts with a limit
+// Function to FETCH posts with a LIMIT
 async function getPosts(limit) {
   const res = await fetch(
     `https://jsonplaceholder.typicode.com/posts?_limit=${limit}`
@@ -23,10 +23,10 @@ async function getPosts(limit) {
 }
 
 export default async function Posts({ searchParams }) {
-  const limit = parseInt(searchParams.limit) || 10; // Ensure limit is a number
-  const postId = parseInt(searchParams.id); // Convert `id` to a number
+  const limit = parseInt(searchParams.limit) || 10;
+  const postId = parseInt(searchParams.id);
 
-  // If `id` is provided in the query string, fetch and display the single post
+  // If `id` is provided in the query string, FETCH and display the SINGLE POST
   if (postId) {
     try {
       const post = await getPostData(postId);
@@ -59,7 +59,7 @@ export default async function Posts({ searchParams }) {
     }
   }
 
-  // Otherwise, fetch and display the list of posts
+  // Otherwise, FETCH and display the LIST of POSTS
   const posts = await getPosts(limit);
 
   return (

@@ -1,8 +1,8 @@
 "use client";
+
 import Link from "next/link";
 import styles from "../page.module.css";
 
-// Save as page.js in app/about
 export default function About() {
   return (
     <main className={styles.main}>
@@ -16,4 +16,4 @@ export default function About() {
   );
 }
 
-// Check http://localhost:3000/about to see it in action
+// Check http://localhost:3000/about
