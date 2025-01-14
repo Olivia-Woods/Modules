@@ -1,4 +1,6 @@
+import CustomCard from "../../../components/CustomCard"; // Import your custom card component
 import Link from "next/link";
+import { Button } from "@mui/material"; // Import Material UI Button
 
 // Function to fetch a single post by ID
 async function getPostData(id) {
@@ -21,25 +23,40 @@ async function getPosts(limit) {
 }
 
 export default async function Posts({ searchParams }) {
-  const limit = searchParams.limit || 10; // Default to 10 posts if no limit
-  const postId = searchParams.id; // Get post ID from query string (?id=)
+  const limit = parseInt(searchParams.limit) || 10; // Ensure limit is a number
+  const postId = parseInt(searchParams.id); // Convert `id` to a number
 
   // If `id` is provided in the query string, fetch and display the single post
   if (postId) {
-    const post = await getPostData(postId);
+    try {
+      const post = await getPostData(postId);
 
-    return (
-      <main>
-        <div className="post">
-          <h1>Post Details</h1>
-          <h3>
-            Post #{post.id}: {post.title}
-          </h3>
-          <p>{post.body}</p>
-          <Link href="/posts">← Back to All Posts</Link>
-        </div>
-      </main>
-    );
+      return (
+        <main>
+          <div className="post">
+            <h1>Post Details</h1>
+            <CustomCard title={`Post #${post.id}: ${post.title}`}>
+              {post.body}
+            </CustomCard>
+            <Link href="/posts">
+              <Button size="small" color="primary">
+                ← Back to All Posts
+              </Button>
+            </Link>
+          </div>
+        </main>
+      );
+    } catch (error) {
+      return (
+        <main>
+          <div className="error">
+            <h2>Error: Unable to load post #{postId}.</h2>
+            <p>{error.message}</p>
+            <Link href="/posts">← Back to All Posts</Link>
+          </div>
+        </main>
+      );
+    }
   }
 
   // Otherwise, fetch and display the list of posts
@@ -49,13 +66,19 @@ export default async function Posts({ searchParams }) {
     <main>
       <div className="Posts">
         <h1>Posts</h1>
-        <ul>
+        <p>Showing up to {limit} posts:</p>
+        <div className="post-list">
           {posts.map((post) => (
-            <li key={post.id}>
-              <Link href={`/posts/${post.id}`}>{post.title}</Link>
-            </li>
+            <CustomCard key={post.id} title={`Post #${post.id}`}>
+              {post.title}
+              <Link href={`/posts/${post.id}`}>
+                <Button size="small" color="primary">
+                  Read More
+                </Button>
+              </Link>
+            </CustomCard>
           ))}
-        </ul>
+        </div>
       </div>
     </main>
   );
