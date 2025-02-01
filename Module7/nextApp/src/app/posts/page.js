@@ -1,10 +1,10 @@
-"use client"; // Mark as a client component
+"use client"; // Mark Client Side
 
-import CustomCard from "../../../components/CustomCard";
+import CustomCard from "../../components/CustomCard";
 import Link from "next/link";
 import { Button } from "@mui/material";
-import { useSearchParams } from "next/navigation"; // Import useSearchParams
-import { useEffect, useState } from "react"; // For client-side fetching
+import { useSearchParams } from "next/navigation";
+import { useEffect, useState } from "react";
 
 async function getPostData(id) {
   const res = await fetch(`https://jsonplaceholder.typicode.com/posts/${id}`);
@@ -25,9 +25,9 @@ async function getPosts(limit) {
 }
 
 export default function Posts() {
-  const searchParams = useSearchParams(); // Hook to access query params
-  const postId = searchParams.get("id"); // Get the "id" param
-  const limit = parseInt(searchParams.get("limit") || 10); // Get the "limit" param with a default value
+  const searchParams = useSearchParams();
+  const postId = searchParams.get("id");
+  const limit = parseInt(searchParams.get("limit") || 10);
 
   const [posts, setPosts] = useState([]);
   const [singlePost, setSinglePost] = useState(null);

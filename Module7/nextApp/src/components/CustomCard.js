@@ -14,7 +14,7 @@ export default function CustomCard({ title, children, href }) {
         component="img"
         height="140"
         alt="Placeholder image"
-        image="https://mui.com/static/images/cards/contemplative-reptile.jpg" // Static image URL to avoid mismatches
+        image="https://mui.com/static/images/cards/contemplative-reptile.jpg"
       />
       <CardContent>
         <Typography gutterBottom variant="h5" component="div">

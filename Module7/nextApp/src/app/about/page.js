@@ -15,5 +15,3 @@ export default function About() {
     </main>
   );
 }
-
-// Check http://localhost:3000/about

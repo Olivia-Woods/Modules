@@ -1,0 +1,22 @@
+.Emoji {
+  text-align: center;
+  padding: 20px;
+  border: 2px solid #ff93d5; /* Your favorite color! */
+  border-radius: 10px;
+  background-color: #ffeefc; /* Light pink background */
+  width: 200px;
+  font-family: Arial, sans-serif;
+}
+
+button {
+  background-color: #ff93d5;
+  color: white;
+  padding: 10px 15px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+button:hover {
+  background-color: #ff67bf;
+}
